@@ -9,7 +9,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 const Input = ({ className }: Props) => {
   return (
     <S.Input
-      className={`border-2 border-solid border-green h-11 ${className} `}
+      className={`border-2 border-solid border-gray-300 h-11  ${className} `}
     />
   );
 };

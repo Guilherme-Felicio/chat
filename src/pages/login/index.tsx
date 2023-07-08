@@ -6,8 +6,8 @@ import image from "../../images/login-styleset.png";
 
 function Login() {
   return (
-    <section className="h-screen flex items-center flex-col-reverse md:flex-row md:columns-2 md:p-2.5">
-      <form className="flex items-center justify-center md:h-full md:w-full">
+    <section className="min-h-screen flex items-center flex-col-reverse md:flex-row md:columns-2 md:p-2.5">
+      <form className="flex items-center mb-20 justify-center md:h-full md:w-full md:m-0 md:min-h-full">
         <div className="w-4/5 ">
           <h1 className="text-5xl font-medium text-center lg:text-left">
             Let’s chat 🤝
@@ -42,7 +42,7 @@ function Login() {
         </div>
       </form>
 
-      <div className="bg-dark-green flex items-center justify-center h-40 w-40 rounded-6xl mb-10 md:h-full md:w-full md:m-0">
+      <div className="bg-dark-green flex mt-20 items-center justify-center h-40 w-40 rounded-6xl mb-10 md:h-full md:min-h-screen md:w-full md:m-0">
         <img
           src={image}
           alt="person texting"

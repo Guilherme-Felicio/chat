@@ -7,6 +7,10 @@ export default {
         green: "#82D9CF",
         gray: "#6C757D",
       },
+      borderColor: {
+        "dark-green": "#63A69E",
+        green: "#82D9CF",
+      },
       borderRadius: {
         "6xl": "3rem",
       },
