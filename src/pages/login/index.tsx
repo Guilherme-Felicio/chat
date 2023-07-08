@@ -46,7 +46,7 @@ function Login() {
         <img
           src={image}
           alt="person texting"
-          className="h-full w-full md:max-h-full md:w-auto"
+          className="h-full w-full md:max-h-full md:w-auto "
         />
       </div>
     </section>
