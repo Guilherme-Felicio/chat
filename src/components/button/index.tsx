@@ -11,7 +11,7 @@ const Button = ({
   return (
     <button
       {...props}
-      className={`w-full font-semibold bg-green rounded-lg text-white flex items-center justify-center h-11 ${className}`}
+      className={`w-full font-semibold bg-dark-green rounded-lg text-white flex items-center justify-center h-11 hover:bg-green ${className}`}
     >
       {children}
     </button>
