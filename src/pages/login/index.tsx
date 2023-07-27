@@ -2,9 +2,11 @@ import Button from "../../components/button";
 import Divider from "../../components/divider";
 import GoogleButton from "../../components/google-button";
 import Input from "../../components/input";
-import image from "../../images/login-styleset.png";
+import image from "../../assets/images/login-styleset.png";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
   return (
     <section className="min-h-screen flex items-center flex-col-reverse md:flex-row md:columns-2 md:p-2.5">
       <form className="flex items-center mb-20 justify-center md:h-full md:w-full md:m-0 md:min-h-full">
@@ -36,6 +38,13 @@ function Login() {
           />
 
           <Button className="mt-8">Sign in</Button>
+          <span
+            className="pt-1 text-gray text-xs hover:text-dark-green hover:cursor-pointer"
+            onClick={() => navigate("/chat/sign-up/")}
+          >
+            Do not have an account? Sign up
+          </span>
+
           <Divider className="my-6" />
 
           <GoogleButton>Sign In with google</GoogleButton>
