@@ -5,6 +5,7 @@ export default {
     extend: {
       backgroundColor: {
         green: "#82D9CF",
+        "dark-green": "#63A69E",
         gray: "#6C757D",
       },
       borderColor: {
@@ -16,6 +17,7 @@ export default {
       },
       colors: {
         "dark-green": "#63A69E",
+        pink: "#D998D5",
       },
       padding: {
         "pb-full": "100%",
