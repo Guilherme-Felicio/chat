@@ -5,7 +5,7 @@ import image from "../../assets/images/create-an-account.svg";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signUpSchemaValidation } from "./schema";
 
-type FormValues = {
+export type FormValues = {
   name: string;
   email: string;
   password: string;

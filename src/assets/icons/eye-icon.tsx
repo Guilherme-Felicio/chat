@@ -1,4 +1,4 @@
-import { Icon } from "../interfaces/icon";
+import { Icon } from "../../interfaces/icon";
 
 const EyeIcon = ({ width = 29.75, height = 24, ...props }: Icon) => {
   return (

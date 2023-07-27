@@ -1,4 +1,4 @@
-import { Icon } from "../interfaces/icon";
+import { Icon } from "../../interfaces/icon";
 
 const GoogleIcon = ({ width = 24, height = 25, ...props }: Icon) => {
   return (
