@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
-import GoogleIcon from "../../icons/google-icon";
+import GoogleIcon from "../../assets/icons/google-icon";
 
 const GoogleButton = ({
   children,
