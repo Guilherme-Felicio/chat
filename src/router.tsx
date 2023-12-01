@@ -4,12 +4,12 @@ import SignUp from "./pages/register";
 
 export const router = createBrowserRouter([
   {
-    path: "/chat/",
+    path: "/",
     element: <Login />,
   },
 
   {
-    path: "/chat/sign-up",
+    path: "/sign-up",
     element: <SignUp />,
   },
 ]);

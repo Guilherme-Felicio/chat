@@ -1,6 +1,6 @@
 {
   "name": "login",
-  "homepage": "https://Guilherme-Felicio.github.io/chat/",
+  "homepage": "https://felicio-chat.vercel.app/",
   "private": false,
   "version": "0.0.0",
   "type": "module",
@@ -8,9 +8,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview --port 5000",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview --port 5000"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.1.1",

@@ -40,7 +40,7 @@ function Login() {
           <Button className="mt-8">Sign in</Button>
           <span
             className="pt-1 text-gray text-xs hover:text-dark-green hover:cursor-pointer"
-            onClick={() => navigate("/chat/sign-up/")}
+            onClick={() => navigate("/sign-up/")}
           >
             Do not have an account? Sign up
           </span>

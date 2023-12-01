@@ -92,7 +92,7 @@ const SignUp = () => {
               folder.
             </p>
             <Link
-              to={"/chat/"}
+              to={"/"}
               className="underline underline-offset-2 text-dark-green"
             >
               Go back to Login page
