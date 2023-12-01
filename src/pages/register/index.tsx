@@ -154,6 +154,12 @@ const SignUp = () => {
             <Button className="mt-8" type="submit">
               Sign Up
             </Button>
+            <Link
+              to="/"
+              className="underline underline-offset-2 text-dark-green text-center block text-xs mt-2"
+            >
+              Go back to Login page
+            </Link>
           </div>
         </form>
       )}
