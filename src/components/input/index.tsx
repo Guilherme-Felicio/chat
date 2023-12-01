@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes, useState } from "react";
-import * as S from "./styles";
 import ErrorText from "../ErrorText";
+import * as S from "./styles";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   LeftIcon?: JSX.Element;
@@ -21,11 +21,11 @@ const Input = React.forwardRef(
           type={type !== "password" ? type : showPassword ? "text" : "password"}
         />
 
-        {type === "password" && !showPassword && (
+        {type === "password" && showPassword && (
           <S.PasswordIcon onClick={() => setShowPassword(!showPassword)} />
         )}
 
-        {type === "password" && showPassword && (
+        {type === "password" && !showPassword && (
           <S.HidePassword onClick={() => setShowPassword(!showPassword)} />
         )}
         {error && <ErrorText>{error}</ErrorText>}
