@@ -1,7 +1,7 @@
 import { css, styled } from "styled-components";
-import { theme } from "../../project-styles";
-import EyeIcon from "../../assets/icons/eye-icon";
 import ClosedEyeIcon from "../../assets/icons/closed-eye-icon";
+import EyeIcon from "../../assets/icons/eye-icon";
+import { theme } from "../../project-styles";
 
 type IInput = {
   error?: string;
@@ -30,6 +30,10 @@ const InputContainer = styled.div<IInput>`
       outline-color: ${({ error }) => !error && theme.colors.green};
     }
   }
+  input[type="password"]::-ms-reveal,
+  input[type="password"]::-ms-clear {
+    display: none;
+  }
 `;
 
 const PasswordIcon = styled(EyeIcon)`
@@ -56,4 +60,4 @@ const HidePassword = styled(ClosedEyeIcon)`
   }
 `;
 
-export { InputContainer, PasswordIcon, HidePassword };
+export { HidePassword, InputContainer, PasswordIcon };
