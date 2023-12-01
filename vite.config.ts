@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [react()],
   base: "/",
   define: {
-    VITE_LOGIN_URL: process.env.VITE_LOGIN_URL,
+    __APP_ENV__: process.env.VITE_LOGIN_URL,
   },
 });
