@@ -11,3 +11,8 @@ export interface ICreateUserResponse {
   created: boolean;
   user: IUser;
 }
+
+export interface IDefaultResponse {
+  message: string;
+  body?: unknown;
+}
