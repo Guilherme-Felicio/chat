@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import LoginApi from "../../api/login-api/loginApi";
@@ -9,7 +9,7 @@ const ActivateAccount = () => {
   const [isValidated, setIsValidated] = useState<boolean>(false);
   const { id } = useParams<{ id: string }>();
 
-  async function actvateAccount() {
+  const actvateAccount = useCallback(async () => {
     try {
       if (!id) return;
       const response = await LoginApi.activateAccount(id);
@@ -20,20 +20,20 @@ const ActivateAccount = () => {
     } catch (e) {
       if (!axios.isAxiosError(e)) return console.error(e);
 
-      if (e.status === 404) {
+      if (e.response?.status === 404) {
         setIsValidated(false);
       }
-      if (e.status === 500) {
+      if (e.response?.status === 500) {
         toast.error(
           "An error has occoured. It was not possible to actvate the account"
         );
       }
     }
-  }
+  }, [id]);
 
   useEffect(() => {
     actvateAccount();
-  }, []);
+  }, [actvateAccount]);
 
   return (
     <section className="min-h-screen flex items-center flex-col-reverse md:flex-row md:columns-2 md:p-2.5">
@@ -48,7 +48,7 @@ const ActivateAccount = () => {
         pauseOnHover
         theme="colored"
       />
-      <div className="flex flex-col items-center min-h-screen justify-center">
+      <div className="flex flex-col items-center min-h-[100%] justify-center">
         <div className="max-w-[80%] text-center">
           {!isValidated ? (
             <>

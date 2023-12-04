@@ -79,7 +79,7 @@ const SignUp = () => {
       />
 
       {wasEmailSend ? (
-        <div className="flex flex-col items-center min-h-screen justify-center">
+        <div className="flex flex-col items-center min-h-[100%] justify-center">
           <div className="max-w-[80%] text-center">
             <h2 className="text-dark-green font-bold text-2xl mb-2">
               Confirmation Email Sent
