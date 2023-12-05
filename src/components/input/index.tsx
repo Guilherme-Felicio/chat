@@ -6,10 +6,14 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   LeftIcon?: JSX.Element;
   RightIcon?: JSX.Element;
   error?: string;
+  disableErrorText?: boolean;
 }
 
 const Input = React.forwardRef(
-  ({ className, error, style, type, ...rest }: Props, ref: any) => {
+  (
+    { className, error, style, type, disableErrorText, ...rest }: Props,
+    ref: unknown
+  ) => {
     const [showPassword, setShowPassword] = useState<boolean>(false);
 
     return (
@@ -28,7 +32,7 @@ const Input = React.forwardRef(
         {type === "password" && !showPassword && (
           <S.HidePassword onClick={() => setShowPassword(!showPassword)} />
         )}
-        {error && <ErrorText>{error}</ErrorText>}
+        {error && !disableErrorText && <ErrorText>{error}</ErrorText>}
       </S.InputContainer>
     );
   }
