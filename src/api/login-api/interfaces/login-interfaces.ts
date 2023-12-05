@@ -12,7 +12,11 @@ export interface ICreateUserResponse {
   user: IUser;
 }
 
-export interface IDefaultResponse {
+export interface IDefaultResponse<T> {
   message: string;
-  body?: unknown;
+  body?: T;
+}
+export interface ILoginResponse {
+  message: string;
+  token: string;
 }

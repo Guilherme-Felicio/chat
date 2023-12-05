@@ -3,6 +3,7 @@ import {
   ICreateUserRequest,
   ICreateUserResponse,
   IDefaultResponse,
+  ILoginResponse,
 } from "./interfaces/login-interfaces";
 
 class LoginApi {
@@ -12,7 +13,17 @@ class LoginApi {
   }
 
   static async activateAccount(token: string) {
-    const response = api.get<IDefaultResponse>(`user/validate?token=${token}`);
+    const response = api.get<IDefaultResponse<unknown>>(
+      `user/validate?token=${token}`
+    );
+    return response;
+  }
+
+  static async login(email: string, password: string) {
+    const response = api.post<ILoginResponse>(`user/login`, {
+      email,
+      password,
+    });
     return response;
   }
 }
