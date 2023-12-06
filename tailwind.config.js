@@ -26,6 +26,16 @@ export default {
       textColor: {
         gray: "#6C757D",
       },
+      animation: {
+        "fade-in": "fadeIn 2s infinite alternate",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: 0 },
+          "50%": { opacity: 1 },
+          "100%": { opacity: 0 },
+        },
+      },
     },
   },
   plugins: [],

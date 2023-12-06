@@ -7,6 +7,7 @@ import LoginApi from "../../api/login-api/loginApi";
 import image from "../../assets/images/login-styleset.png";
 import Button from "../../components/button";
 import Divider from "../../components/divider";
+import GlobalLoading from "../../components/global-loading";
 import GoogleButton from "../../components/google-button";
 import Input from "../../components/input";
 
@@ -45,81 +46,84 @@ function Login() {
         }
       }
     },
-    [errors, setError]
+    [errors, navigate, setError]
   );
 
   return (
-    <section className="min-h-screen flex items-center flex-col-reverse md:flex-row md:columns-2 md:p-2.5">
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
-      <form
-        className="flex items-center mb-20 justify-center md:h-full md:w-full md:m-0 md:min-h-full"
-        onSubmit={handleSubmit(login)}
-      >
-        <div className="w-4/5 ">
-          <h1 className="text-5xl font-medium text-center lg:text-left">
-            Let’s chat 🤝
-          </h1>
-          <p className="text-2xl font-normal text-gray mt-2 mb-7">
-            Sign in to start to chat with your friends
-          </p>
-          <label htmlFor="email" className="w-full">
-            Email
-          </label>
-          <Input
-            type="email"
-            id="email"
-            className="w-full mt-2 mb-6"
-            {...register("email")}
-            error={errors.root?.message}
-            disableErrorText
-          />
-
-          <label htmlFor="password" className="w-full">
-            Password
-          </label>
-          <Input
-            type="password"
-            id="password"
-            className="w-full mt-2"
-            {...register("password")}
-            error={errors.root?.message}
-            disableErrorText
-          />
-
-          <Button className="mt-8" type="submit">
-            Sign in
-          </Button>
-          <span
-            className="pt-1 text-gray text-xs hover:text-dark-green hover:cursor-pointer"
-            onClick={() => navigate("/sign-up/")}
-          >
-            Do not have an account? Sign up
-          </span>
-
-          <Divider className="my-6" />
-
-          <GoogleButton type="button">Sign In with google</GoogleButton>
-        </div>
-      </form>
-
-      <div className="bg-dark-green flex mt-20 items-center justify-center h-40 w-40 rounded-6xl mb-10 md:h-full md:min-h-screen md:w-full md:m-0">
-        <img
-          src={image}
-          alt="person texting"
-          className="h-full w-full md:max-h-full md:w-auto "
+    <>
+      <GlobalLoading />
+      <section className="min-h-screen flex items-center flex-col-reverse md:flex-row md:columns-2 md:p-2.5">
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
         />
-      </div>
-    </section>
+        <form
+          className="flex items-center mb-20 justify-center md:h-full md:w-full md:m-0 md:min-h-full"
+          onSubmit={handleSubmit(login)}
+        >
+          <div className="w-4/5 ">
+            <h1 className="text-5xl font-medium text-center lg:text-left">
+              Let’s chat 🤝
+            </h1>
+            <p className="text-2xl font-normal text-gray mt-2 mb-7">
+              Sign in to start to chat with your friends
+            </p>
+            <label htmlFor="email" className="w-full">
+              Email
+            </label>
+            <Input
+              type="email"
+              id="email"
+              className="w-full mt-2 mb-6"
+              {...register("email")}
+              error={errors.root?.message}
+              disableErrorText
+            />
+
+            <label htmlFor="password" className="w-full">
+              Password
+            </label>
+            <Input
+              type="password"
+              id="password"
+              className="w-full mt-2"
+              {...register("password")}
+              error={errors.root?.message}
+              disableErrorText
+            />
+
+            <Button className="mt-8" type="submit">
+              Sign in
+            </Button>
+            <span
+              className="pt-1 text-gray text-xs hover:text-dark-green hover:cursor-pointer"
+              onClick={() => navigate("/sign-up/")}
+            >
+              Do not have an account? Sign up
+            </span>
+
+            <Divider className="my-6" />
+
+            <GoogleButton type="button">Sign In with google</GoogleButton>
+          </div>
+        </form>
+
+        <div className="bg-dark-green flex mt-20 items-center justify-center h-40 w-40 rounded-6xl mb-10 md:h-full md:min-h-screen md:w-full md:m-0">
+          <img
+            src={image}
+            alt="person texting"
+            className="h-full w-full md:max-h-full md:w-auto "
+          />
+        </div>
+      </section>
+    </>
   );
 }
 export default Login;
