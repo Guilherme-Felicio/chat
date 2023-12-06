@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
+import "./config/translations/i18n";
 import "./index.css";
 import { router } from "./router";
 

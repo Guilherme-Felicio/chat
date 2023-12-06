@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import LoginApi from "../../api/login-api/loginApi";
@@ -27,6 +28,8 @@ function Login() {
     formState: { errors },
   } = useForm<ILoginValues>();
 
+  const { t } = useTranslation();
+
   const login = useCallback(
     async (values: ILoginValues) => {
       setLoading(true);
@@ -49,7 +52,7 @@ function Login() {
         setLoading(false);
       }
     },
-    [errors, navigate, setError]
+    [navigate, setError]
   );
 
   return (
@@ -74,13 +77,13 @@ function Login() {
         >
           <div className="w-4/5 ">
             <h1 className="text-5xl font-medium text-center lg:text-left">
-              Let’s chat 🤝
+              {t("login_page.title")}🤝
             </h1>
             <p className="text-2xl font-normal text-gray mt-2 mb-7">
-              Sign in to start to chat with your friends
+              {t("login_page.subtitle")}
             </p>
             <label htmlFor="email" className="w-full">
-              Email
+              {t("login_page.email")}
             </label>
             <Input
               type="email"
@@ -92,7 +95,7 @@ function Login() {
             />
 
             <label htmlFor="password" className="w-full">
-              Password
+              {t("login_page.password")}
             </label>
             <Input
               type="password"
@@ -104,18 +107,18 @@ function Login() {
             />
 
             <Button className="mt-8" type="submit">
-              Sign in
+              {t("login_page.sign_in")}
             </Button>
             <span
               className="pt-1 text-gray text-xs hover:text-dark-green hover:cursor-pointer"
               onClick={() => navigate("/sign-up/")}
             >
-              Do not have an account? Sign up
+              {t("login_page.sign_up")}
             </span>
 
             <Divider className="my-6" />
 
-            <GoogleButton type="button">Sign In with google</GoogleButton>
+            <GoogleButton type="button">{t("login_page.google")}</GoogleButton>
           </div>
         </form>
 
