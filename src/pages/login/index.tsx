@@ -7,7 +7,6 @@ import LoginApi from "../../api/login-api/loginApi";
 import image from "../../assets/images/login-styleset.png";
 import Button from "../../components/button";
 import Divider from "../../components/divider";
-import GlobalLoading from "../../components/global-loading";
 import GoogleButton from "../../components/google-button";
 import Input from "../../components/input";
 
@@ -51,7 +50,6 @@ function Login() {
 
   return (
     <>
-      <GlobalLoading />
       <section className="min-h-screen flex items-center flex-col-reverse md:flex-row md:columns-2 md:p-2.5">
         <ToastContainer
           position="top-right"
