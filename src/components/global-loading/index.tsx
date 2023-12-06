@@ -1,9 +1,11 @@
 import LoadingIcon from "../../assets/icons/loading-icon";
 
-const GlobalLoading = ({ opacity }: { opacity: number }) => {
+const GlobalLoading = ({ fullOpacity = false }: { fullOpacity?: boolean }) => {
   return (
     <div
-      className={`fixed top-0 left-0 w-full h-full flex items-center justify-center bg-opacity-[${opacity}] bg-white z-50`}
+      className={`fixed top-0 left-0 w-full h-full flex items-center justify-center ${
+        fullOpacity ? "bg-opacity-100" : "bg-opacity-75"
+      } bg-white z-50`}
     >
       <div className=" p-8 rounded-lg text-center flex justify-center flex-col items-center">
         <LoadingIcon className="animate-bounce" width={50} height={50} />

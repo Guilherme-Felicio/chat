@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import LoginApi from "../../api/login-api/loginApi";
 import image from "../../assets/images/create-an-account.svg";
 import Button from "../../components/button";
+import GlobalLoading from "../../components/global-loading";
 import Input from "../../components/input";
 import { signUpSchemaValidation } from "./schema";
 
@@ -19,6 +20,7 @@ export type FormValues = {
 
 const SignUp = () => {
   const [wasEmailSend, setWasEmailSend] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const {
     register,
@@ -37,7 +39,7 @@ const SignUp = () => {
 
   const onSubmit: SubmitHandler<FormValues> = async (values) => {
     const { name, email, password, repeatPassword } = values;
-
+    setLoading(true);
     try {
       const response = await LoginApi.createUser({
         name,
@@ -61,6 +63,8 @@ const SignUp = () => {
           return;
         }
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -77,6 +81,7 @@ const SignUp = () => {
         pauseOnHover
         theme="colored"
       />
+      {loading && <GlobalLoading />}
 
       {wasEmailSend ? (
         <div className="flex flex-col items-center min-h-[100%] justify-center">

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
@@ -7,6 +7,7 @@ import LoginApi from "../../api/login-api/loginApi";
 import image from "../../assets/images/login-styleset.png";
 import Button from "../../components/button";
 import Divider from "../../components/divider";
+import GlobalLoading from "../../components/global-loading";
 import GoogleButton from "../../components/google-button";
 import Input from "../../components/input";
 
@@ -17,6 +18,7 @@ export type ILoginValues = {
 
 function Login() {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState<boolean>(false);
 
   const {
     handleSubmit,
@@ -27,6 +29,7 @@ function Login() {
 
   const login = useCallback(
     async (values: ILoginValues) => {
+      setLoading(true);
       try {
         const resp = await LoginApi.login(values.email, values.password);
         if (!resp.data.token) return;
@@ -37,12 +40,13 @@ function Login() {
 
         if (error.response?.status === 401) {
           setError("root", {
-            type: "v402lue",
+            type: "401",
             message: "Invalid email or password",
           });
           toast.error("Invalid email or password");
-          console.log(errors);
         }
+      } finally {
+        setLoading(false);
       }
     },
     [errors, navigate, setError]
@@ -62,6 +66,8 @@ function Login() {
           pauseOnHover
           theme="colored"
         />
+        {loading && <GlobalLoading />}
+
         <form
           className="flex items-center mb-20 justify-center md:h-full md:w-full md:m-0 md:min-h-full"
           onSubmit={handleSubmit(login)}
