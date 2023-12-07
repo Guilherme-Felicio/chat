@@ -1,28 +1,21 @@
+import i18next from "i18next";
 import * as Yup from "yup";
 import { FormValues } from ".";
 
 export const signUpSchemaValidation: Yup.ObjectSchema<FormValues> =
   Yup.object().shape({
-    name: Yup.string().required("Required field"),
-    email: Yup.string().email().required("Required field"),
+    name: Yup.string().required(i18next.t("errors.required")),
+    email: Yup.string().email().required(i18next.t("errors.required")),
     password: Yup.string()
-      .min(8, "Required field")
-      .matches(
-        /[a-z]/,
-        "The password must have 8 characters, with at least one uppercase and one lowercase letter."
-      )
-      .matches(
-        /[A-Z]/,
-        "The password must have 8 characters, with at least one uppercase and one lowercase letter."
-      )
+      .min(8, i18next.t("errors.required"))
+      .matches(/[a-z]/, i18next.t("errors.password_rule"))
+      .matches(/[A-Z]/, i18next.t("errors.password_rule"))
       .required(),
     repeatPassword: Yup.string()
-      .required(
-        "The password must have 8 characters, with at least one uppercase and one lowercase letter."
-      )
+      .required(i18next.t("errors.password_rule"))
       .test(
         "passwords-match",
-        'A "The entered value and the password field are not the same."',
+        i18next.t("errors.confirm_password"),
         function (value) {
           return value === this.parent.password;
         }

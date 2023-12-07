@@ -2,6 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import LoginApi from "../../api/login-api/loginApi";
@@ -21,6 +22,8 @@ export type FormValues = {
 const SignUp = () => {
   const [wasEmailSend, setWasEmailSend] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+
+  const { t } = useTranslation();
 
   const {
     register,
@@ -87,20 +90,14 @@ const SignUp = () => {
         <div className="flex flex-col items-center min-h-[100%] justify-center">
           <div className="max-w-[80%] text-center">
             <h2 className="text-dark-green font-bold text-2xl mb-2">
-              Confirmation Email Sent
+              {t("register_page.email_sent_title")}
             </h2>
-            <p>
-              Thank you for creating an account with us! We've just sent a
-              confirmation email to the address you provided. Please check your
-              inbox and follow the instructions to verify your account. If you
-              don't see the email within a few minutes, please check your spam
-              folder.
-            </p>
+            <p>{t("register_page.email_sent_paragraph")}</p>
             <Link
               to="/"
               className="underline underline-offset-2 text-dark-green"
             >
-              Go back to Login page
+              {t("register_page.go_back")}
             </Link>
           </div>
         </div>
@@ -111,13 +108,13 @@ const SignUp = () => {
         >
           <div className="w-4/5 ">
             <h1 className="text-5xl font-medium text-center lg:text-left">
-              Create an account
+              {t("register_page.title")}
             </h1>
             <p className="text-2xl font-normal text-gray mt-2 mb-7">
-              Start to chat with your friends now!
+              {t("register_page.subtitle")}
             </p>
             <label htmlFor="name" className="w-full">
-              Name
+              {t("register_page.name")}
             </label>
             <Input
               type="text"
@@ -127,7 +124,7 @@ const SignUp = () => {
             />
 
             <label htmlFor="email" className="w-full">
-              Email
+              {t("register_page.email")}
             </label>
             <Input
               type="email"
@@ -137,7 +134,7 @@ const SignUp = () => {
             />
 
             <label htmlFor="password" className="w-full">
-              Password
+              {t("register_page.password")}
             </label>
             <Input
               type="password"
@@ -147,7 +144,7 @@ const SignUp = () => {
             />
 
             <label htmlFor="repeatPassword" className="w-full">
-              Confirm the password
+              {t("register_page.confirm_password")}
             </label>
             <Input
               type="password"
@@ -157,13 +154,13 @@ const SignUp = () => {
             />
 
             <Button className="mt-8" type="submit">
-              Sign Up
+              {t("register_page.sign_up")}
             </Button>
             <Link
               to="/"
               className="underline underline-offset-2 text-dark-green text-center block text-xs mt-2"
             >
-              Go back to Login page
+              {t("register_page.go_back")}
             </Link>
           </div>
         </form>
