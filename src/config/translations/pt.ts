@@ -1,6 +1,7 @@
 export default {
   errors: {
     required: "Campo obrigatório",
+    invalid_email: "E-mail inválido",
     password_rule:
       "A senha deve ter pelo menos 8 caracteres, com pelo menos uma letra maiúscula e uma letra minúscula.",
     confirm_password: "O valor inserido não coincide com o campo de senha.",

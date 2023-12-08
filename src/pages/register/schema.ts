@@ -5,7 +5,9 @@ import { FormValues } from ".";
 export const signUpSchemaValidation: Yup.ObjectSchema<FormValues> =
   Yup.object().shape({
     name: Yup.string().required(i18next.t("errors.required")),
-    email: Yup.string().email().required(i18next.t("errors.required")),
+    email: Yup.string()
+      .email(i18next.t("errors.invalid_email"))
+      .required(i18next.t("errors.required")),
     password: Yup.string()
       .min(8, i18next.t("errors.required"))
       .matches(/[a-z]/, i18next.t("errors.password_rule"))

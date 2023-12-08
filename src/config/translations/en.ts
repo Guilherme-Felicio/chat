@@ -1,6 +1,7 @@
 export default {
   errors: {
     required: "Required field",
+    invalid_email: "Invalid email",
     password_rule:
       "The password must have 8 characters, with at least one uppercase and one lowercase letter.",
     confirm_password:
