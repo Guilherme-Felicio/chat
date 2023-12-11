@@ -10,6 +10,7 @@ import image from "../../assets/images/create-an-account.svg";
 import Button from "../../components/button";
 import GlobalLoading from "../../components/global-loading";
 import Input from "../../components/input";
+import LanguageSelect from "../../components/language-select";
 import { signUpSchemaValidation } from "./schema";
 
 export type FormValues = {
@@ -73,6 +74,9 @@ const SignUp = () => {
 
   return (
     <section className="min-h-screen flex items-center flex-col-reverse md:flex-row md:columns-2 md:p-2.5">
+      <div className="absolute left-2 top-3">
+        <LanguageSelect />
+      </div>
       <ToastContainer
         position="top-right"
         autoClose={3000}
@@ -87,7 +91,7 @@ const SignUp = () => {
       {loading && <GlobalLoading />}
 
       {wasEmailSend ? (
-        <div className="flex flex-col items-center min-h-[100%] justify-center">
+        <div className="flex flex-col items-center min-h-[100%] justify-center mt-10">
           <div className="max-w-[80%] text-center">
             <h2 className="text-dark-green font-bold text-2xl mb-2">
               {t("register_page.email_sent_title")}
@@ -103,7 +107,7 @@ const SignUp = () => {
         </div>
       ) : (
         <form
-          className="flex items-center mb-20 justify-center md:h-full md:w-full md:m-0 md:min-h-full"
+          className="flex items-center mb-20 mt-10 justify-center md:h-full md:w-full md:mb-0 md:min-h-full "
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="w-4/5 ">

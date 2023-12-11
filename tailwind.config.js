@@ -17,12 +17,12 @@ export default {
       },
       colors: {
         "dark-green": "#63A69E",
+        green: "#82D9CF",
         pink: "#D998D5",
       },
       padding: {
         "pb-full": "100%",
       },
-
       textColor: {
         gray: "#6C757D",
       },

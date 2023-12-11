@@ -1,4 +1,8 @@
 export default {
+  languages: {
+    pt: "Português",
+    us: "Inglês",
+  },
   errors: {
     required: "Campo obrigatório",
     invalid_email: "E-mail inválido",
