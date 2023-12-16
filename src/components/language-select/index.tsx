@@ -2,8 +2,7 @@ import { useTranslation } from "react-i18next";
 import ReactSelect, { SingleValue } from "react-select";
 import BrazilFlag from "../../assets/icons/brazil-flag";
 import UsFlag from "../../assets/icons/us-flag";
-import LanguageControl from "./components/control";
-import LanguageIndicator from "./components/indicator";
+import { theme } from "../../project-styles";
 import LanguageOption from "./components/option";
 import LanguageSigleValue from "./components/single-value";
 
@@ -41,6 +40,10 @@ const LanguageSelect = () => {
             ...baseStyles,
             display: "none",
           }),
+          option: (baseStyles, state) => ({
+            ...baseStyles,
+            padding: "0",
+          }),
           valueContainer: (baseStyles, state) => ({
             ...baseStyles,
             padding: 0,
@@ -54,6 +57,20 @@ const LanguageSelect = () => {
             ...baseStyles,
             width: "8rem",
           }),
+          control: (baseStyles, state) => ({
+            ...baseStyles,
+            display: "flex",
+            ":hover": {
+              cursor: "pointer",
+              borderColor: theme.colors.green,
+              boxShadow: `0 0 0 1px ${theme.colors.green}`,
+            },
+            background: "transparent",
+            border: state.isFocused ? theme.colors.green : "none",
+            boxShadow: state.isFocused
+              ? `0 0 0 1px ${theme.colors.green}`
+              : "none",
+          }),
         }}
         onChange={(newValue) => {
           const country = newValue as SingleValue<ILanguageOptions>;
@@ -62,8 +79,6 @@ const LanguageSelect = () => {
         components={{
           Option: LanguageOption,
           SingleValue: LanguageSigleValue,
-          Control: LanguageControl,
-          IndicatorsContainer: LanguageIndicator,
         }}
       />
     </div>
